@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Word Counter",
+  "version": "1.0",
+  "description": "Counts the number of words on a page.",
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
