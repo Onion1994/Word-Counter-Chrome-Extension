@@ -13,6 +13,14 @@ const createWordCountPopup = () => {
   popup.style.borderBottom = "2px solid #2980b9";
   popup.style.fontFamily = "'Arial', sans-serif";
 
+  popup.addEventListener("mouseover", () => {
+    popup.style.display = "none";
+  });
+
+  popup.addEventListener("mouseout", () => {
+    popup.style.display = "block";
+  });
+
   document.body.appendChild(popup);
   return popup;
 };
@@ -26,7 +34,7 @@ const updateWordCountPopup = () => {
   let popup = document.querySelector("#wordCountPopup");
 
   if (!popup) {
-      popup = createWordCountPopup();
+    popup = createWordCountPopup();
   }
 
   popup.textContent = `This page contains ${wordCount} words`;

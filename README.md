@@ -8,6 +8,9 @@ Word Counter is a lightweight Chrome extension designed to count the number of w
 - Minimalistic UI: The word count information is displayed in a clean and unobtrusive popup.
 - Easy Installation: The extension is packaged for straightforward installation on your Chrome browser.
 
+## Mouse Interaction
+- **Hide and Reappear:** The popup will automatically hide when the mouse is over it, providing an unobstructed view of the content. It will reappear when the mouse leaves the popup area.
+
 ## How to Use
 1. **Installation:**
    - Clone the repository to your local machine.
