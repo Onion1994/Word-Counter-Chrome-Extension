@@ -3,6 +3,10 @@
   "name": "Word Counter",
   "version": "1.0",
   "description": "Counts the number of words on a page.",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "js": ["scripts/content.js"],
