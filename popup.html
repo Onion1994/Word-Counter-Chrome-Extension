@@ -9,9 +9,13 @@
   </style>
 </head>
 <body>
-  <h2>Word Counter</h2>
+  <form id="countForm">
+    <label for="wordsInput">Enter one word or just submit to count all words:</label>
+    <input type="text" id="wordsInput" placeholder="Type words here">
+    <br>
+    <input type="submit" value="Count!">
+  </form>
   <p id="wordCount"></p>
-  <button id="countButton">Count!</button>
   <script src="popup.js"></script>
 </body>
 </html>
