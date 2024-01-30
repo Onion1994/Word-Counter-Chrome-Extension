@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("countForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    countWords();
-  });
+  document
+    .getElementById("countForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      countWords();
+    });
 });
 
 function countWords() {
@@ -22,4 +24,8 @@ function countWords() {
       }
     );
   });
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { countWords };
 }
