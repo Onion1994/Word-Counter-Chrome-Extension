@@ -18,7 +18,6 @@ describe("countWords", () => {
 
     document.getElementById = jest.fn().mockReturnValue({
       value: "test input",
-      textContent: "",
     });
 
     countWords();
