@@ -1,6 +1,6 @@
-const { countWords } = require("../popup");
+const { retrieveWordCount } = require("../popup");
 
-describe("countWords", () => {
+describe("retrieveWordCount", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -20,7 +20,7 @@ describe("countWords", () => {
       value: "test input",
     });
 
-    countWords();
+    retrieveWordCount();
 
     expect(chrome.tabs.query).toHaveBeenCalledWith(
       { active: true, currentWindow: true },
@@ -29,7 +29,7 @@ describe("countWords", () => {
 
     expect(chrome.tabs.sendMessage).toHaveBeenCalledWith(
       1,
-      { action: "countWords", wordInput: "test input" },
+      { wordInput: "test input" },
       expect.any(Function)
     );
 

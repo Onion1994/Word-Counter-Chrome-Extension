@@ -3,17 +3,17 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("countForm")
     .addEventListener("submit", function (event) {
       event.preventDefault();
-      countWords();
+      retrieveWordCount();
     });
 });
 
-function countWords() {
+function retrieveWordCount() {
   const wordInput = document.getElementById("wordInput").value;
 
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(
       tabs[0].id,
-      { action: "countWords", wordInput: wordInput },
+      { wordInput: wordInput },
       function (response) {
         const resultMessage =
           response && response.wordCount !== undefined
@@ -27,5 +27,5 @@ function countWords() {
 }
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { countWords };
+  module.exports = { retrieveWordCount };
 }
