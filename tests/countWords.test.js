@@ -51,10 +51,51 @@ describe("countWords", () => {
   });
 
   test("should ignore punctuation and symbols", () => {
-    const text =
-      "test: is this a test? It could be a test. No it's not a test! Wait, maybe it is a @test...";
+    const text = "test: this is a @test.";
     const wordInput = "test";
     const result = countWords(text, wordInput);
-    expect(result).toBe(5);
+    expect(result).toBe(2);
+  });
+
+  test("should ignore apostrophes, hyphens or any other punctuation that joins words", () => {
+    const text = "this is a tester's test, tester-tester, tester/coder";
+    const wordInput = "tester";
+    const result = countWords(text, wordInput);
+    expect(result).toBe(4);
+  });
+
+  test("should treat wordInput as not provided when it's just whitespace", () => {
+    const text = "this is a test";
+    const wordInput = " ";
+    const result = countWords(text, wordInput);
+    expect(result).toBe(4);
+  });
+
+  test("should ignore whitespace characters in wordInput", () => {
+    const text = "this is a test";
+    const wordInput = "   test   ";
+    const result = countWords(text, wordInput);
+    expect(result).toBe(1);
+  });
+
+  test("should return 0 if wordInput is just a punctuation mark", () => {
+    const text = "This is a test.";
+    const wordInput = ".";
+    const result = countWords(text, wordInput);
+    expect(result).toBe(0);
+  });
+
+  test("should return 0 if wordInput is just a symbol", () => {
+    const text = "This is a [test]";
+    const wordInput = "[";
+    const result = countWords(text, wordInput);
+    expect(result).toBe(0);
+  });
+
+  test("should return 0 if wordInput is more than one word", () => {
+    const text = "This is a test";
+    const wordInput = "a test";
+    const result = countWords(text, wordInput);
+    expect(result).toBe(0);
   });
 });

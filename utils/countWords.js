@@ -1,10 +1,11 @@
 function countWords(text, wordInput) {
-    if (wordInput.length > 0) {
-      return text.split(/\s+/).filter(function (word) {
-        const cleanedWord = word.replace(/[^\w\s]/g, "");
+    if (wordInput.trim().length > 0) {
+      return text.split(/\b/).filter(function (word) {
+        const cleanedWord = word.replace(/[^\w\s']/g, ""); 
+        console.log(cleanedWord, '<- cleanedWord')
         return (
           cleanedWord.length > 0 &&
-          cleanedWord.toUpperCase() === wordInput.toUpperCase()
+          cleanedWord.toUpperCase() === wordInput.toUpperCase().trim()
         );
       }).length;
     } else {
